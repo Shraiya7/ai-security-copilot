@@ -18,13 +18,13 @@ The system combines:
 
 ## High-Risk Security Event
 
-![High Risk Event](screenshots/high-risk-event.png)
+![High Risk Event](Screenshots/high-risk-event.png)
 
 ---
 
 ## Normal User Activity
 
-![Normal User Activity](screenshots/dashboard-normal.png)
+![Normal User Activity](Screenshots/dashboard-normal.png)
 
 ---
 
