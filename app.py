@@ -7,6 +7,7 @@ from src.risk_engine import calculate_risk_score, explain_event
 
 risk_model = joblib.load("models/risk_classifier.pkl")
 anomaly_model = joblib.load("models/anomaly_detector.pkl")
+threat_model = joblib.load("models/threat_classifier.pkl")
 
 st.set_page_config(
     page_title="AI Security Copilot",
@@ -27,6 +28,10 @@ login_hour = st.sidebar.slider("Login Hour", 0, 23, 12)
 country_risk = st.sidebar.slider("Country Risk Score", 1, 5, 2)
 device_risk = st.sidebar.slider("Device Risk Score", 1, 5, 2)
 bytes_sent = st.sidebar.slider("Bytes Sent", 100, 40000, 3000)
+alert_text = st.sidebar.text_area(
+    "Security Alert Text",
+    "Multiple failed login attempts from same IP"
+)
 
 input_data = pd.DataFrame([{
     "failed_logins": failed_logins,
@@ -38,6 +43,7 @@ input_data = pd.DataFrame([{
 
 risk_prediction = risk_model.predict(input_data)[0]
 anomaly_prediction = anomaly_model.predict(input_data)[0]
+threat_prediction = threat_model.predict([alert_text])[0]
 
 risk_score = calculate_risk_score(
     failed_logins,
@@ -55,7 +61,7 @@ explanations = explain_event(
     bytes_sent
 )
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.metric("ML Risk Level", risk_prediction)
@@ -68,6 +74,8 @@ with col3:
         st.metric("Anomaly Detection", "Anomaly")
     else:
         st.metric("Anomaly Detection", "Normal")
+with col4:
+    st.metric("NLP Threat Type", threat_prediction)
 
 st.divider()
 
@@ -78,6 +86,8 @@ for explanation in explanations:
 
 st.subheader("Input Event Data")
 st.dataframe(input_data)
+st.subheader("Security Alert Text")
+st.info(alert_text)
 
 st.subheader("Risk Score Visualization")
 
