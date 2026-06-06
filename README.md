@@ -16,9 +16,15 @@ The system combines:
 
 ---
 
-## High-Risk Security Event
+## High-Risk Attack Detection
 
-![High Risk Event](Screenshots/high-risk-event.png)
+![High Risk Attack](Screenshots/dashboard-high-risk.png)
+
+---
+
+## NLP Phishing Detection
+
+![Phishing Detection](Screenshots/dashboard-phishing.png)
 
 ---
 
