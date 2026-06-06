@@ -2,12 +2,20 @@
 
 AI-powered cybersecurity risk analysis dashboard built with Python, Scikit-Learn, and Streamlit.
 
+## High-Risk Security Event
+
+![High Risk Event](screenshots/high-risk-event.png)
+
+## Normal User Activity
+
+![Normal Activity](screenshots/dashboard-normal.png)
+
 ## Features
 
-- Risk classification using Random Forest
+- Machine learning risk classification
 - Anomaly detection using Isolation Forest
-- Custom risk scoring engine
-- Explainable security event analysis
+- Custom cybersecurity risk scoring
+- Explainable analyst-style security explanations
 - Interactive Streamlit dashboard
 
 ## Technologies Used
@@ -19,57 +27,16 @@ AI-powered cybersecurity risk analysis dashboard built with Python, Scikit-Learn
 - Matplotlib
 - Joblib
 
-## Project Architecture
+## How It Works
 
-Security Event Data
-↓
-Machine Learning Models
-↓
-Risk Scoring Engine
-↓
-Anomaly Detection
-↓
-Analyst Explanations
-↓
-Interactive Dashboard
+The dashboard takes security event inputs such as failed login attempts, login time, country risk, device risk, and bytes sent.
 
-## Example Inputs
-
-- Failed Login Attempts
-- Login Hour
-- Country Risk Score
-- Device Risk Score
-- Bytes Sent
-
-## Example Outputs
-
-- Low / Medium / High Risk Classification
-- Anomaly Detection
-- Risk Score (0–100)
-- Analyst Explanation
-
-## Skills Demonstrated
-
-- Machine Learning
-- Data Science
-- Cybersecurity Analytics
-- Feature Engineering
-- Model Evaluation
-- Explainable AI
-- Dashboard Development
+It uses a Random Forest model to classify the event as Low, Medium, or High risk. It also uses an Isolation Forest model to detect anomalies and a custom risk engine to explain why an event may be suspicious.
 
 ## How to Run
 
 ```bash
 pip install -r requirements.txt
-
 python create_data.py
-
 python train_model.py
-
-streamlit run app.py
-```
-
-## Author
-
-Shraiya Rajput
+python -m streamlit run app.py
