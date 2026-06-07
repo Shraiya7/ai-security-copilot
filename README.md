@@ -51,7 +51,6 @@ The system combines:
 
 - Python
 - Pandas
-- NumPy
 - Scikit-Learn
 - Streamlit
 - Matplotlib
