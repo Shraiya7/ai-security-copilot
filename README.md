@@ -1,15 +1,16 @@
 # AI Security Copilot
 
-AI-powered cybersecurity risk analysis dashboard built with Python, Scikit-Learn, and Streamlit.
+AI-powered cybersecurity analytics platform built with Python, Scikit-Learn, NLP, and Streamlit.
 
 ## Overview
 
-AI Security Copilot is a machine learning project that analyzes simulated security events and classifies them as Low, Medium, or High risk.
+AI Security Copilot analyzes security events and alert text to identify suspicious activity, classify risk levels, detect anomalies, and predict likely threat categories.
 
 The system combines:
 
 - Machine Learning Risk Classification
 - Anomaly Detection
+- NLP Threat Classification
 - Cybersecurity Risk Scoring
 - Explainable Security Analytics
 - Interactive Dashboard Visualization
@@ -22,7 +23,7 @@ The system combines:
 
 ---
 
-## NLP Phishing Detection
+## NLP Threat Classification
 
 ![Phishing Detection](Screenshots/dashboard-phishing.png)
 
@@ -38,7 +39,8 @@ The system combines:
 
 - Random Forest risk classification
 - Isolation Forest anomaly detection
-- Custom cybersecurity risk scoring engine
+- NLP-based threat classification
+- Cybersecurity risk scoring engine
 - Explainable analyst-style security explanations
 - Interactive Streamlit dashboard
 - Real-time security event analysis
@@ -54,6 +56,7 @@ The system combines:
 - Streamlit
 - Matplotlib
 - Joblib
+- Git & GitHub
 
 ---
 
@@ -73,6 +76,14 @@ Risk Scoring Engine
 Analyst Explanations
         ↓
 Streamlit Dashboard
+
+Security Alert Text
+        ↓
+TF-IDF Vectorization
+        ↓
+Logistic Regression Classifier
+        ↓
+Threat Type Prediction
 ```
 
 ---
@@ -88,6 +99,7 @@ The model analyzes the following security indicators:
 | Country Risk | Risk score of login location |
 | Device Risk | Risk score of the device |
 | Bytes Sent | Amount of network activity |
+| Alert Text | Security alert message used for NLP classification |
 
 ---
 
@@ -96,8 +108,9 @@ The model analyzes the following security indicators:
 The dashboard provides:
 
 - Low / Medium / High Risk Classification
-- Risk Score (0-100)
+- Risk Score (0–100)
 - Anomaly Detection
+- NLP Threat Type Prediction
 - Analyst Explanation
 - Data Visualization
 
@@ -105,29 +118,46 @@ The dashboard provides:
 
 ## Example High-Risk Event
 
-Example input:
+### Example Input
 
 ```text
 Failed Login Attempts: 30
-Login Hour: 9
+Login Hour: 2
 Country Risk Score: 5
 Device Risk Score: 5
 Bytes Sent: 25000
+
+Alert Text:
+Multiple failed login attempts from same IP
 ```
 
-Example output:
+### Example Output
 
 ```text
 ML Risk Level: High
 Risk Score: 100/100
 Anomaly Detection: Anomaly
+NLP Threat Type: Brute Force
 ```
+
+---
+
+## Threat Categories Supported
+
+The NLP classifier can identify:
+
+- Brute Force
+- Phishing
+- Malware
+- Ransomware
+- Data Exfiltration
 
 ---
 
 ## Skills Demonstrated
 
 - Machine Learning
+- Natural Language Processing (NLP)
 - Data Science
 - Cybersecurity Analytics
 - Risk Analysis
@@ -141,25 +171,37 @@ Anomaly Detection: Anomaly
 
 ## How to Run
 
-Install dependencies:
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Create dataset:
+### Generate Security Event Dataset
 
 ```bash
 python create_data.py
 ```
 
-Train models:
+### Train Security Models
 
 ```bash
 python train_model.py
 ```
 
-Run dashboard:
+### Generate NLP Dataset
+
+```bash
+python create_nlp_data.py
+```
+
+### Train NLP Threat Classifier
+
+```bash
+python train_nlp_model.py
+```
+
+### Launch Dashboard
 
 ```bash
 python -m streamlit run app.py
@@ -169,11 +211,12 @@ python -m streamlit run app.py
 
 ## Future Improvements
 
-- NLP-based threat classification
 - Real security log ingestion
-- Cloud deployment
+- Cloud deployment (AWS, Azure, or GCP)
 - Threat intelligence integration
 - Advanced anomaly detection
+- Computer vision-based surveillance analytics
+- Automated incident response workflows
 
 ---
 
@@ -181,4 +224,4 @@ python -m streamlit run app.py
 
 **Shraiya Rajput**
 
-AI Security Copilot Project
+AI Security Copilot — Machine Learning, NLP, and Cybersecurity Analytics Project
