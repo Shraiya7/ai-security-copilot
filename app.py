@@ -120,7 +120,4 @@ if st.button("Run LLM Security Test"):
     st.write(f"Result: {result['result']}")
     st.write(f"Risk Level: {result['risk_level']}")
     st.write(f"Recommendation: {result['recommendation']}")
-    st.header("LLM Security Testing")
-
-attack_prompt = st.text_area("Enter a prompt to test for LLM security risks")
-
+    
