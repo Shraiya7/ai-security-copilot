@@ -52,7 +52,6 @@ The platform combines machine learning-based threat detection, anomaly detection
 ### Machine Learning & NLP
 
 - Pandas
-- NumPy
 - Scikit-Learn
 - TF-IDF
 - Logistic Regression
