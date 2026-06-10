@@ -1,3 +1,4 @@
+from llm_security.llm_security_tester import run_security_test
 import streamlit as st
 import pandas as pd
 import joblib
@@ -107,3 +108,15 @@ st.write("""
 - Explainable security analysis
 - Streamlit dashboard development
 """)
+st.header("LLM Security Testing")
+
+attack_prompt = st.text_area("Enter a prompt to test for LLM security risks")
+
+if st.button("Run LLM Security Test"):
+    result = run_security_test(attack_prompt)
+
+    st.subheader("Security Test Result")
+    st.write(f"Attack Type: {result['attack_type']}")
+    st.write(f"Result: {result['result']}")
+    st.write(f"Risk Level: {result['risk_level']}")
+    st.write(f"Recommendation: {result['recommendation']}")
